@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/widgets/app_bar_widget.dart';
-import 'package:weather_app/widgets/no_weather_data_widget.dart';
+import 'package:weather_app/widgets/weather_data_widget.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -9,7 +9,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       appBar: AppBarWidget(),
-      body: NoWeatherDataWidget(),
+      body: WeatherDataWidget(),
     );
   }
 }
