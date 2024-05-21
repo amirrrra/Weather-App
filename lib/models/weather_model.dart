@@ -1,3 +1,5 @@
+WeatherModel? weatherModel;
+
 class WeatherModel {
   final String city;
   final String date;

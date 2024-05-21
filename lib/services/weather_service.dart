@@ -9,7 +9,7 @@ class WeatherService {
   String apiKey = 'f4a33b1f1e0049f1b01154331231708';
   String error = 'Oh snap! there was an error, try later';
 
-  Future<WeatherModel?> getWeather(String city) async {
+  Future<WeatherModel> getWeather(String city) async {
     try {
       Response response = await dio.get(
         '$baseUrl/forecast.json?key=$apiKey&q=$city&days=1',

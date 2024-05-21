@@ -3,7 +3,7 @@ import 'package:weather_app/utils/constants.dart';
 
 class SearchAppBarWidget extends StatelessWidget
     implements PreferredSizeWidget {
-  const SearchAppBarWidget({
+  const  SearchAppBarWidget({
     super.key,
   });
 
