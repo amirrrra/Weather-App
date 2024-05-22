@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/models/weather_model.dart';
-import 'package:weather_app/services/weather_service.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_app/cubits/get_weather_cubit/get_weather_cubit.dart';
 import 'package:weather_app/utils/constants.dart';
 
 class TextFieldWidget extends StatelessWidget {
@@ -11,9 +11,10 @@ class TextFieldWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8),
       child: TextField(
-        onSubmitted: (value) async {
-          weatherModel = await WeatherService().getWeather(value);
-          if (context.mounted) Navigator.pop(context);
+        onSubmitted: (value) {
+          var getWeatherCubit = BlocProvider.of<GetWeatherCubit>(context);
+          getWeatherCubit.getWeather(value);
+          Navigator.pop(context);
         },
         decoration: const InputDecoration(
           labelText: 'Search',
