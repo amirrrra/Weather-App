@@ -18,7 +18,9 @@ class HomeView extends StatelessWidget {
           if (state is GetWeatherInitialState) {
             return const NoWeatherDataWidget();
           } else if (state is GetWeatherSuccessState) {
-            return const WeatherDataWidget();
+            return WeatherDataWidget(
+              weatherModel: state.weatherModel,
+            );
           } else {
             return const Text('oops, there was an error');
           }

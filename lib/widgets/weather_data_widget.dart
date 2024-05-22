@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/models/weather_model.dart';
 
 class WeatherDataWidget extends StatelessWidget {
-  const WeatherDataWidget({super.key});
+  final WeatherModel weatherModel;
+  const WeatherDataWidget({
+    super.key,
+    required this.weatherModel,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -9,6 +14,7 @@ class WeatherDataWidget extends StatelessWidget {
       fontSize: 32,
       fontWeight: FontWeight.bold,
     );
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -16,11 +22,11 @@ class WeatherDataWidget extends StatelessWidget {
           flex: 3,
         ),
         Text(
-          'Country',
+          weatherModel.city,
           style: textStyle,
         ),
-        const Text(
-          'Date',
+        Text(
+          weatherModel.date,
           style: TextStyle(
             fontSize: 22,
           ),
@@ -29,22 +35,22 @@ class WeatherDataWidget extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            // Image.asset('name'),
+            Image.asset(weatherModel.image),
             Text(
-              '17',
+              '${weatherModel.avgTemp}',
               style: textStyle,
             ),
-            const Column(
+            Column(
               children: [
-                Text('maxTemp'),
-                Text('minTemp'),
+                Text('${weatherModel.maxTemp}'),
+                Text('${weatherModel.minTemp}'),
               ],
             ),
           ],
         ),
         const Spacer(),
         Text(
-          'state',
+          weatherModel.state,
           style: textStyle,
         ),
         const Spacer(
