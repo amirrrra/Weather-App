@@ -7,6 +7,8 @@ void main() {
   runApp(const WeatherApp());
 }
 
+// Provide cubit
+
 class WeatherApp extends StatelessWidget {
   const WeatherApp({super.key});
 
@@ -21,3 +23,14 @@ class WeatherApp extends StatelessWidget {
     );
   }
 }
+
+/* 
+
+1- Create states
+2- Create cubit
+3- Create function 
+4- Provide cubit
+5- Integrate cubit
+6- Trigger cubit 
+
+*/

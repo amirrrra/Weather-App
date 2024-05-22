@@ -1,3 +1,5 @@
+// Create states
+
 class GetWeatherState {}
 
 class GetWeatherInitialState extends GetWeatherState {}

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/utils/constants.dart';
 import 'package:weather_app/views/search_view.dart';
+import 'package:weather_app/widgets/gredient_container_widget.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   const AppBarWidget({
@@ -10,7 +11,6 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: kAppBar,
       title: const Text(
         'Weather',
         style: TextStyle(
@@ -39,6 +39,8 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
           ),
         ),
       ],
+      // ignore: prefer_const_constructors
+      flexibleSpace: GredientContainerWidget()
     );
   }
 

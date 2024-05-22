@@ -3,10 +3,9 @@ import 'package:weather_app/utils/constants.dart';
 
 class SearchAppBarWidget extends StatelessWidget
     implements PreferredSizeWidget {
-  const  SearchAppBarWidget({
+  const SearchAppBarWidget({
     super.key,
   });
-
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -25,7 +24,19 @@ class SearchAppBarWidget extends StatelessWidget
           color: kWhite,
         ),
       ),
-      backgroundColor: kAppBar,
+      flexibleSpace: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              kBlueGrey.shade500,
+              kBlueGrey.shade300,
+              kBlueGrey.shade700,
+            ],
+            begin: Alignment.centerRight,
+            end: Alignment.centerLeft,
+          ),
+        ),
+      ),
     );
   }
 

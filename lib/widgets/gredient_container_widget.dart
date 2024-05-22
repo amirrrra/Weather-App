@@ -16,7 +16,7 @@ class GredientContainerWidget extends StatelessWidget {
         gradient: LinearGradient(
           colors: [
             getWeatherTheme(state),
-            getWeatherTheme(state)[600]!,
+            getWeatherTheme(state)[300]!,
             getWeatherTheme(state)[700]!,
           ],
           begin: Alignment.centerRight,
