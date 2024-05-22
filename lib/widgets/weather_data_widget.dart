@@ -10,54 +10,52 @@ class WeatherDataWidget extends StatelessWidget {
     var weatherModel = BlocProvider.of<GetWeatherCubit>(context).weatherModel;
 
     var textStyle = const TextStyle(
-      fontSize: 32,
+      fontSize: 24,
+    );
+    const textStyle2 = TextStyle(
+      fontSize: 64,
       fontWeight: FontWeight.bold,
     );
 
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Spacer(
-          flex: 3,
-        ),
+        const Spacer(),
         Text(
           weatherModel.city,
-          style: textStyle,
-        ),
-        Text(
-          weatherModel.date,
-          style: const TextStyle(
-            fontSize: 22,
+          style: textStyle2.copyWith(
+            fontSize: 32,
           ),
         ),
-        const Spacer(),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Image.network(
-              'https:${weatherModel.image}',
-            ),
-            Text(
-              '${weatherModel.avgTemp}',
-              style: textStyle,
-            ),
-            Column(
-              children: [
-                Text('${weatherModel.maxTemp}'),
-                Text('${weatherModel.minTemp}'),
-              ],
-            ),
-          ],
-        ),
-        const Spacer(),
         Text(
-          weatherModel.state,
+          'updated at ${weatherModel.date.hour}:${weatherModel.date.minute}',
           style: textStyle,
         ),
+        const Spacer(),
+        Image.network(
+          weatherModel.image.contains('https')
+              ? weatherModel.image
+              : 'https:${weatherModel.image}',
+        ),
+        Text(
+          '${weatherModel.avgTemp.round()}°',
+          style: textStyle2,
+        ),
+        Center(
+          child: Text(
+            '${weatherModel.state}'
+            '  '
+            '${weatherModel.maxTemp.round()}°'
+            '/'
+            '${weatherModel.minTemp.round()}°',
+            style: textStyle,
+          ),
+        ),
         const Spacer(
-          flex: 5,
+          flex: 4,
         ),
       ],
     );
   }
 }
+
+// Alt + 0176 => °
