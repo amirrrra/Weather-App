@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/models/weather_model.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_app/cubits/get_weather_cubit/get_weather_cubit.dart';
 
 class WeatherDataWidget extends StatelessWidget {
-  final WeatherModel weatherModel;
-  const WeatherDataWidget({
-    super.key,
-    required this.weatherModel,
-  });
+  const WeatherDataWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var weatherModel = BlocProvider.of<GetWeatherCubit>(context).weatherModel;
+
     var textStyle = const TextStyle(
       fontSize: 32,
       fontWeight: FontWeight.bold,
@@ -27,7 +26,7 @@ class WeatherDataWidget extends StatelessWidget {
         ),
         Text(
           weatherModel.date,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 22,
           ),
         ),
@@ -35,7 +34,9 @@ class WeatherDataWidget extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Image.asset(weatherModel.image),
+            Image.network(
+              'https:${weatherModel.image}',
+            ),
             Text(
               '${weatherModel.avgTemp}',
               style: textStyle,
